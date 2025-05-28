@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,27 +12,15 @@
       background: #e6f9e6;
       color: #333;
     }
-    .hero {
-      background: url('header.png') no-repeat center center;
-      background-size: contain;
-      background-color: #2d6a4f;
-      height: 250px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    header {
+      background: #2d6a4f;
       color: white;
+      padding: 1.5rem;
       text-align: center;
     }
-    .hero h1 {
+    header h1 {
       margin: 0;
       font-size: 2.5rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-    .hero p {
-      font-size: 1rem;
-      margin: 0.5rem 0 0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
     .container {
       max-width: 1000px;
@@ -75,38 +64,38 @@
 </head>
 <body>
 
-  <div class="hero">
+  <img src="header.png" alt="Amb's Green Blogs" style="width:100%; display:block;">
+
+  <header>
     <h1>Amb's Green Blogs 🌿</h1>
     <p>Your Daily Dose of Botany Wonders</p>
-  </div>
+  </header>
 
-  <div class="container" id="blog-container"></div>
+  <div class="container">
+
+    <div class="post">
+      <img src="photosynthesis.png" alt="Photosynthesis Image">
+      <div class="post-content">
+        <h2>The Magic of Photosynthesis</h2>
+        <p class="date">Posted on May 28, 2025</p>
+        <p>Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods from carbon dioxide and water. It's the foundation of life on Earth!</p>
+      </div>
+    </div>
+
+    <div class="post">
+      <img src="medicinal-plants.png" alt="Medicinal Plants">
+      <div class="post-content">
+        <h2>5 Medicinal Plants You Can Grow at Home</h2>
+        <p class="date">Posted on May 20, 2025</p>
+        <p>Aloe Vera, Tulsi, Peppermint, Lemongrass, and Lavender are not just pretty — they carry healing properties that make your home a mini natural pharmacy.</p>
+      </div>
+    </div>
+
+  </div>
 
   <footer>
     &copy; 2025 Amb's Green Blogs | Made with 🌱 for plant lovers
   </footer>
-
-  <script>
-    fetch('posts.json')
-      .then(response => response.json())
-      .then(posts => {
-        const container = document.getElementById('blog-container');
-        posts.forEach(post => {
-          const postDiv = document.createElement('div');
-          postDiv.className = 'post';
-          postDiv.innerHTML = `
-            <img src="${post.image}" alt="${post.title}">
-            <div class="post-content">
-              <h2>${post.title}</h2>
-              <p class="date">Posted on ${post.date}</p>
-              <p>${post.content}</p>
-            </div>
-          `;
-          container.appendChild(postDiv);
-        });
-      })
-      .catch(error => console.error('Error loading posts:', error));
-  </script>
 
 </body>
 </html>
